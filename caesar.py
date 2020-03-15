@@ -14,12 +14,18 @@ if args.mode == 0:
     key = int(input("Key(Integer): "))
     encrypted = ""
     for char in text:
-        encrypted = encrypted + chr(ord(char)+key)
+        if char != ' ':
+            encrypted = encrypted + chr(ord(char)+key)
+        else:
+            encrypted = encrypted + ' '
     print ("Encrypted text is: {}".format(encrypted))
 else:
     encrypted = input("Encrypted message to be decrypted: ")
     key = int(input("Key(Integer): "))
     text = ""
     for char in encrypted:
-        text = text + chr(ord(char)-key)
+        if char != ' ':
+            text = text + chr(ord(char)-key)
+        else:
+            encrypted = encrypted + ' '
     print ("Decrypted text is: {}".format(text))
