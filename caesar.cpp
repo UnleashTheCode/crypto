@@ -17,10 +17,10 @@ int main(){
         cin >> k;
         for (int i=0; i < c.size();i++){
             if (c[i] != ' '){
-                n[i] = char(int(c[i]) + k);
+                n[i] = char(int(c[i]) + k); // transformam caracterul in cod ASCII, rezultatul il adunam cu cheia si il transformam inapoi in caracter
             }
             else{
-                n[i] += ' ';
+                n[i] += ' ';     // In caz ca este spatiu il lasam neschimbat (in caz ca vrem sa encriptam si spatiul scoatem if-ul
             }
     }
     cout << "Encrypted message: " << n << endl;
@@ -33,10 +33,10 @@ int main(){
         cin >> k;
         for (int i = 0; i < c.size();i++){
             if (c[i] != ' '){
-                n[i] = char(int(c[i]) - k);
+                n[i] = char(int(c[i]) - k);// transformam caracterul in cod ASCII, rezultatul il scadem cu cheia si il transformam inapoi in caracter
             }
             else{
-                n[i] += ' ';
+                n[i] += ' ';// In caz ca este spatiu il lasam neschimbat (in caz ca vrem sa encriptam si spatiul scoatem if-ul
             }
         }
         cout << "Decrypted message: " << n << endl;
