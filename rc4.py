@@ -1,4 +1,4 @@
-
+import sys
 def KSA(key):
     k = list(range(256))
     j = 0
@@ -14,20 +14,19 @@ def PRGA(k):
         i = (i + 1) % 256
         j = (j + k[i]) % 256
         k[i], k[j] = k[j], k[i]
-        yield k[(k[i] + k[j]) % 256]
+        K=k[(k[i] + k[j]) % 256]
+        yield K
 
 def RC4(k,text):
     stream = PRGA(k)
-    result = ''
     for char in text:
-        byte = ord(char)
-        cipher_b= byte ^ next(stream)
-        result += result + chr(cipher_b)
-    print (result)
+        cipher_b= ord(char) ^ next(stream)
+        sys.stdout.write("%02X" % (cipher_b))
+    print()
 
 if __name__ == '__main__':
-    key = input("Key: ")
-    text = input("Text: ")
+    key = 'Key'#input("Key: ")
+    text = 'Plaintext'#input("Text: ")
     key = [ord(char) for char in key]
     k = KSA(key)
     RC4(k,text)
