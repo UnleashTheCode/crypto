@@ -11,12 +11,12 @@ args = parser.parse_args()
 
 if args.mode == 0:
     text = input("Message to be encrypted: ")
-    key = int(input("Key(Integer): "))
+    key = int(input("Key(Integer): ")) #luam cheia de tip integer
     encrypted = ""
     for char in text:
         if char != ' ':
-            encrypted = encrypted + chr(ord(char)+key)
-        else:
+            encrypted = encrypted + chr(ord(char)+key) #transformam caracterul in integer (ASCII) 
+        else:                                           #si adunam cheia dupa care transformam inapoi in caracter
             encrypted = encrypted + ' '
     print ("Encrypted text is: {}".format(encrypted))
 else:
@@ -25,7 +25,7 @@ else:
     text = ""
     for char in encrypted:
         if char != ' ':
-            text = text + chr(ord(char)-key)
-        else:
+            text = text + chr(ord(char)-key)            #transformam caracterul in integer (ASCII)
+        else:                                           #si scadem cheia dupa care transformam inapoi in caracter
             encrypted = encrypted + ' '
     print ("Decrypted text is: {}".format(text))
