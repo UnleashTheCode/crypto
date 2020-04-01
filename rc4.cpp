@@ -15,7 +15,7 @@ int KSA(){  //Key-Scheduling Algorithm
     int c;
     int keyk[256];
     for (int i = 0; i<key.length();i++){
-        keyk[i]=int(keyk[i]);
+        keyk[i]=int(key[i]);
     }
     for(int i = 0; i<255; i++){
         j = (j + T[i] + keyk[i % key.length()]) % 256;
